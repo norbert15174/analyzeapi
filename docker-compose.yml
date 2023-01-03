@@ -15,7 +15,6 @@ services:
       - analyze-network
   analyzeapi:
     container_name: analyzeapi
-    image: analyzeapi-dev:latest
     build:
       dockerfile: Dockerfile
     ports:
