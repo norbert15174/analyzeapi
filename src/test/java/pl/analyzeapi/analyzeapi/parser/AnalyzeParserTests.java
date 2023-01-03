@@ -19,4 +19,11 @@ public class AnalyzeParserTests {
         Assertions.assertThat(result).contains("test832", "7836test","test","543tes2");
     }
 
+    @Test
+    void wordWithNumber_readAll2() {
+        String wordWithNumber = "test832 7836testąą dssa d212d";
+        var result = AnalyzeParser.parse(wordWithNumber);
+        Assertions.assertThat(result).contains("test832", "7836testąą");
+    }
+
 }
