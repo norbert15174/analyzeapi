@@ -1,0 +1,34 @@
+services:
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - analyze-network
+  analyzeapi:
+    container_name: analyzeapi
+    image: analyzeapi-dev:latest
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - analyze-network
+volumes:
+  db:
+    driver: local
+
+networks:
+  analyze-network:
+    driver: bridge
+    external: true

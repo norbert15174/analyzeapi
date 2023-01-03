@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="create-1" author="faronnor">
+        <createTable tableName="fragment">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="uuid" type="VARCHAR(255)"/>
+            <column name="text" type="VARCHAR(32767)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-2" author="faronnor">
+        <createTable tableName="word">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="positions" type="VARCHAR(255)"/>
+            <column name="count" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-3" author="faronnor">
+        <createTable tableName="fragment_word">
+            <column name="fragment_id" type="BIGINT"/>
+            <column name="word_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-4" author="faronnor">
+        <addForeignKeyConstraint baseTableName="fragment_word" baseColumnNames="fragment_id"
+                                 constraintName="fragment_id_fk" referencedTableName="fragment"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="fragment_word" baseColumnNames="word_id" constraintName="word_id_fk"
+                                 referencedTableName="word" referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

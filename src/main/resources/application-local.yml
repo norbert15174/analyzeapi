@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/test
+    username: postgres
+    password: postgres
+  liquibase:
+    change-log: classpath:changelog.xml
+    enabled: true
+    contexts: local
+  config:
+    activate:
+      on-profile: local
+global:
+  pageSize: 10
