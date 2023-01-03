@@ -4,6 +4,8 @@
 - clone project
 - build .jar 
 > mvn clean package -DSkipTests
+- Create network
+> docker network create -d bridge analyze-network
 - run docker compose
 > docker compose up -d
 
