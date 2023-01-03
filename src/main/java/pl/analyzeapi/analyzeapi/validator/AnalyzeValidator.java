@@ -12,6 +12,10 @@ public class AnalyzeValidator extends Validator {
             return;
         }
 
+        if ( !validateMaxLength(text , errors) ) {
+            return;
+        }
+
         var lines = AnalyzeParser.parse(text);
         if ( lines.length == 0 ) {
             errors.reject("Text does not contain words");

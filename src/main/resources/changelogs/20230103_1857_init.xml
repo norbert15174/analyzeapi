@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
-    <changeSet id="create-1" author="faronnor">
+    <changeSet id="20230103_1857_init-1" author="faronnor">
         <createTable tableName="fragment">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -15,7 +15,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="create-2" author="faronnor">
+    <changeSet id="20230103_1857_init-2" author="faronnor">
         <createTable tableName="word">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -26,14 +26,14 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="create-3" author="faronnor">
+    <changeSet id="20230103_1857_init-3" author="faronnor">
         <createTable tableName="fragment_word">
             <column name="fragment_id" type="BIGINT"/>
             <column name="word_id" type="BIGINT"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="create-4" author="faronnor">
+    <changeSet id="20230103_1857_init-4" author="faronnor">
         <addForeignKeyConstraint baseTableName="fragment_word" baseColumnNames="fragment_id"
                                  constraintName="fragment_id_fk" referencedTableName="fragment"
                                  referencedColumnNames="id"/>
